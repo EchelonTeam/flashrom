@@ -6561,6 +6561,38 @@ const struct flashchip flashchips[] = {
 	},
 
 	{
+		.vendor		= "Numonyx",
+		.name		= "N25Q128", 
+		.bustype	= BUS_SPI,
+		.manufacture_id = ST_ID,
+		.model_id	= ST_N25Q128,
+		.total_size	= 16384,
+		.page_size	= 256,
+		.feature_bits	= FEATURE_WRSR_WREN | FEATURE_OTP,
+		.tested		= TEST_UNTESTED,
+		.probe		= probe_spi_rdid,
+		.probe_timing	= TIMING_ZERO,
+		.block_erasers	=
+		{
+			{
+				.eraseblocks = { {4 * 1024, 4096 } },
+				.block_erase = spi_block_erase_20,
+			}, {
+				.eraseblocks = { {64 * 1024, 256} },
+				.block_erase = spi_block_erase_d8,
+			}, {
+				.eraseblocks = { {16 * 1024 * 1024, 1} },
+				.block_erase = spi_block_erase_c7,
+			}
+		},
+		.printlock	= spi_prettyprint_status_register_plain,
+		.unlock		= spi_disable_blockprotect,
+		.write		= spi_chip_write_256,
+		.read		= spi_chip_read,
+		.voltage	= {2700, 3600},
+	},
+
+	{
 		.vendor		= "PMC",
 		.name		= "Pm25LV010",
 		.bustype	= BUS_SPI,

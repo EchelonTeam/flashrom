@@ -615,6 +615,7 @@
 #define ST_N25Q032__1E		0xBB16		/* N25Q032, 1.8V, (uniform sectors expected) */
 #define ST_N25Q064__3E		0xBA17		/* N25Q064, 3.0V, (uniform sectors expected) */
 #define ST_N25Q064__1E		0xBB17		/* N25Q064, 1.8V, (uniform sectors expected) */
+#define ST_N25Q128			0xBA18		/* N25Q128, 3.0V, (uniform sectors expected) */
 
 #define SYNCMOS_MVC_ID		0x40	/* SyncMOS (SM) and Mosel Vitelic Corporation (MVC) */
 #define MVC_V29C51000T		0x00
