@@ -29,13 +29,6 @@ static int romimages = 0;
 
 #define MAX_ROMLAYOUT	32
 
-typedef struct {
-	unsigned int start;
-	unsigned int end;
-	unsigned int included;
-	char name[256];
-} romlayout_t;
-
 /* include_args lists arguments specified at the command line with -i. They
  * must be processed at some point so that desired regions are marked as
  * "included" in the rom_entries list.

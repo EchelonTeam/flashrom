@@ -39,6 +39,13 @@
 #define TIMEOUT_ERROR	-101
 
 typedef unsigned long chipaddr;
+typedef struct {
+	unsigned int start;
+	unsigned int end;
+	unsigned int included;
+	char name[256];
+	char file[256]; /* file == "" means not specified. */
+} romlayout_t;
 
 int register_shutdown(int (*function) (void *data), void *data);
 void *programmer_map_flash_region(const char *descr, unsigned long phys_addr,
@@ -305,6 +312,7 @@ int register_include_arg(char *name);
 int process_include_args(void);
 int read_romlayout(char *name);
 int handle_romentries(const struct flashctx *flash, uint8_t *oldcontents, uint8_t *newcontents);
+romlayout_t *get_next_included_romentry(unsigned int start);
 
 /* spi.c */
 struct spi_command {
